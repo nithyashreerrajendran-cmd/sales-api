@@ -2,6 +2,8 @@
 reporter.py — Prints summary tables to the console
 """
 import pandas as pd
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 
 def print_report(

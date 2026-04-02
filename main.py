@@ -27,7 +27,7 @@ def main() -> None:
     os.environ["KAGGLE_USERNAME"] = config.KAGGLE_USERNAME
     os.environ["KAGGLE_KEY"]      = config.KAGGLE_KEY
 
-    if not os.path.exists(config.INPUT_FILE):
+    if not os.path.exists("data/raw/sales_data_sample.csv"):
         print("Downloading dataset from Kaggle...")
         os.makedirs("data/raw", exist_ok=True)
         kaggle.api.authenticate()
@@ -39,7 +39,7 @@ def main() -> None:
         print("Download complete.")
     else:
         print("Using existing local file.")
-    df = load_sales(config.INPUT_FILE)
+    df = load_sales()
     dp = config.DECIMAL_PLACES
 
     # 2. Calculate
